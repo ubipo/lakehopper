@@ -1,0 +1,26 @@
+Part	Volume	Fraction solid	Weight	Area	Count	Weight total
+Wing	6.42188e+06	0.3	257.793		2	515.585
+Fuselage	54465.1	1	7.08046		1	7.08046
+Tail boom	353429	1	197.92		1	197.92
+Wing spar	120000	1	63.4921		2	126.984
+Horizontal stabilizer	140000	1	15.08		1	15.08
+Vertical stabilizer	37500	1	4.03929		1	4.03929
+Stabilizer mount	51465.8	1	6.69056		1	6.69056
+
+Battery			604.8		1	604.8
+ESC			70		1	70
+Motor			300		1	300
+Prop			87		1	87
+Pixhawk			38		1	38
+GPS			30		1	30
+Telem			40		1	40
+Servo			35		4	140
+GoPro						74
+FPV OSD			3		1	3
+FPV VTX			6		1	6
+Power distribution						30
+
+Payload						700
+
+
+Total						2996.18

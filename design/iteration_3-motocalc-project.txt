@@ -1,0 +1,97 @@
+Begin MotoCalc Project
+Lake Hopper
+
+MetricMode=0
+Newtons=N
+Elevation=131.2
+Pressure=29.92
+Temperature=58.5
+UseTemp=1
+
+Drive System:
+PropellerRadioButton=Y
+DuctedFanRadioButton=N
+GearRatioToEdit=
+GearRatioFromEdit=
+PropellerDiameterFromEdit=12
+PropellerPitchFromEdit=6
+PropellerDiameterToEdit=
+PropellerPitchToEdit=
+GearRatioByEdit=
+PropellerDiameterByEdit=
+PropellerPitchByEdit=
+PropellerBladesEdit=
+NumberOfPropsEdit=
+PropConstantEdit=1.31
+ThrustConstantEdit=0.950
+GearboxEfficiencyEdit=
+GearboxWeightEdit=
+IntakeDiameterEdit=
+ExhaustDiameterEdit=
+FanDiameterEdit=
+IntakeLengthEdit=
+ExhaustLengthEdit=
+FanPitchEdit=
+HubDiameterEdit=
+FanThrustCoeffEdit=
+FanPowerCoeffEdit=
+FanWeightEdit=
+DriveSystemNameEdit=Generic 12x6in Prop
+SeriesMotorsEdit=
+ParallelMotorsEdit=
+
+Battery:
+CellCapacityEdit=3200
+CellResistanceEdit=0.008
+CellNameEdit=Kokam 3200SHD
+CellWeightEdit=2.83
+NumberOfCellsFromEdit=5
+NumberOfCellsToEdit=5
+CellVoltageEdit=3.7
+ParallelCellsEdit=2
+CRatingEdit=20
+CellTypeComboBox=LiPo
+ParallelCellsToEdit=2
+
+Motor:
+MotorConstantEdit=480
+ArmatureResistanceEdit=0.0128
+IdleCurrentEdit=0.6
+MotorWeightEdit=3.91534
+MotorNameEdit=Turnigy Multistar 4108-480
+MotorBrushlessCheckBox=Y
+MotorOutRunnerCheckBox=Y
+
+Speed Control:
+ESCNameEdit=Generic Brushless ESC
+ESCResistanceEdit=0.006
+ESCWeightEdit=1.5
+ESCMaxCurrentEdit=
+ESCHighRateCheckBox=Y
+ESCBrushlessCheckBox=Y
+MultipleESCsEdit=
+WizardInfoEdit=7;14;17"Any Manufacturer"22;25;28;18!0!34;
+WireWizInfoEdit=
+
+Airframe:
+WingAreaEdit=1200
+EmptyWeightEdit=45.9
+AirframeNameEdit=Lake Hopper
+WingSpanEdit=137.8
+AirfoilInfoEdit=1160416
+DragInfoEdit=3111
+
+Filter:
+FilterNameEdit=
+MaxCurrentEdit=
+MaxPowerLossEdit=
+MinEfficiencyEdit=
+MinThrustEdit=
+MinSpeedEdit=
+MaxSpeedEdit=
+MinTimeEdit=
+MaxPitchRatioEdit=
+MaxRPMEdit=
+UseFilterCheckBox=N
+
+End MotoCalc Project
