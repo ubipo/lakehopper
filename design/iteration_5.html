@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iteration 4 &#8212; Lakehopper</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://paddy.pfiers.net/design/iteration_5.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Iteration 4" href="iteration_4.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Lakehopper</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Lakehopper
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Design
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="iteration_1.html">
+     Iteration 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iteration_2.html">
+     Iteration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iteration_3.html">
+     Iteration 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iteration_4.html">
+     Iteration 4
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Iteration 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/design/iteration_5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ubipo/paddy"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/iteration_5.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ubipo/paddy/master?urlpath=tree/design/iteration_5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-design">
+   Initial Design
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weight-estimate">
+   Weight Estimate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#airfoil-selection">
+   Airfoil Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wing-loading-and-thrust-to-weight-ratio">
+   Wing Loading and Thrust to Weight Ratio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#propulsion-system">
+   Propulsion System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fpv-system">
+   FPV System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#servos">
+   Servos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#radio">
+   Radio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bom">
+   BOM
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="iteration-4">
+<h1>Iteration 4<a class="headerlink" href="#iteration-4" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unyt</span> <span class="kn">import</span> <span class="n">km</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">inch</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">kg</span><span class="p">,</span> <span class="n">hr</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">radian</span><span class="p">,</span> <span class="n">volt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">π</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">=</span> <span class="n">minute</span><span class="o">**-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ρ</span> <span class="o">=</span> <span class="mf">1.225</span><span class="o">*</span><span class="n">kg</span><span class="o">/</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span> <span class="c1"># air density</span>
+<span class="n">μinf</span> <span class="o">=</span> <span class="mf">1.81e-5</span><span class="o">*</span><span class="n">kg</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">s</span><span class="p">)</span> <span class="c1"># viscosity of air</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Goals:</p>
+<ul class="simple">
+<li><p>Use more accurate weight estimate with FPV system</p></li>
+</ul>
+<div class="section" id="initial-design">
+<h2>Initial Design<a class="headerlink" href="#initial-design" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">3050</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># wingspan</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">230</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># chord</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span> <span class="c1"># wing area</span>
+<span class="n">AR</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">S</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(13.26086957, &#39;(dimensionless)&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weight-estimate">
+<h2>Weight Estimate<a class="headerlink" href="#weight-estimate" title="Permalink to this headline">¶</a></h2>
+<p>Weight estimate decreased from 3047 to 3000 (included real FPV system weight, more realistic telem weight, increased payload from 500g to 700g).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="mi">3000</span><span class="o">*</span><span class="n">g</span> <span class="c1"># weight</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Volume</p></th>
+<th class="head"><p>Fraction solid</p></th>
+<th class="head"><p>Weight</p></th>
+<th class="head"><p>Area</p></th>
+<th class="head"><p>Count</p></th>
+<th class="head"><p>Weight total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Wing</p></td>
+<td><p>6.42188e+06</p></td>
+<td><p>0.3</p></td>
+<td><p>257.793</p></td>
+<td><p></p></td>
+<td><p>2</p></td>
+<td><p>515.585</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fuselage</p></td>
+<td><p>54465.1</p></td>
+<td><p>1</p></td>
+<td><p>7.08046</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>7.08046</p></td>
+</tr>
+<tr class="row-even"><td><p>Tail boom</p></td>
+<td><p>353429</p></td>
+<td><p>1</p></td>
+<td><p>197.92</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>197.92</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wing spar</p></td>
+<td><p>120000</p></td>
+<td><p>1</p></td>
+<td><p>63.4921</p></td>
+<td><p></p></td>
+<td><p>2</p></td>
+<td><p>126.984</p></td>
+</tr>
+<tr class="row-even"><td><p>Horizontal stabilizer</p></td>
+<td><p>140000</p></td>
+<td><p>1</p></td>
+<td><p>15.08</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>15.08</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vertical stabilizer</p></td>
+<td><p>37500</p></td>
+<td><p>1</p></td>
+<td><p>4.03929</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>4.03929</p></td>
+</tr>
+<tr class="row-even"><td><p>Stabilizer mount</p></td>
+<td><p>51465.8</p></td>
+<td><p>1</p></td>
+<td><p>6.69056</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>6.69056</p></td>
+</tr>
+<tr class="row-odd"><td><p>Battery</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>604.8</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>604.8</p></td>
+</tr>
+<tr class="row-even"><td><p>ESC</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>70</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>70</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>300</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>300</p></td>
+</tr>
+<tr class="row-even"><td><p>Prop</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>87</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>87</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pixhawk</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>38</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-even"><td><p>GPS</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>30</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>Telem</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>40</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>Servo</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>35</p></td>
+<td><p></p></td>
+<td><p>4</p></td>
+<td><p>140</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoPro</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>74</p></td>
+</tr>
+<tr class="row-even"><td><p>FPV OSD</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>3</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPV VTX</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>6</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Power distribution</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>Payload</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>700</p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2996.18</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="airfoil-selection">
+<h2>Airfoil Selection<a class="headerlink" href="#airfoil-selection" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="mi">30</span><span class="o">*</span><span class="n">km</span><span class="o">/</span><span class="n">hr</span> <span class="c1"># cruise speed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CL</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">W</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ρ</span><span class="o">*</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span> <span class="o">=</span> <span class="p">(</span><span class="n">ρ</span><span class="o">*</span><span class="n">V</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="n">μinf</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">to_value</span><span class="p">(),</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130000.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.75</span><span class="o">*</span><span class="n">degree</span>
+<span class="n">Clα</span> <span class="o">=</span> <span class="mf">1.05</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">0.8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLα</span> <span class="o">=</span> <span class="n">Clα</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">Clα</span><span class="o">/</span><span class="p">(</span><span class="n">π</span><span class="o">*</span><span class="n">e</span><span class="o">*</span><span class="n">AR</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CL_unitless</span> <span class="o">=</span> <span class="n">CL</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="s1">&#39;s**2/m&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="n">α0</span><span class="o">+</span><span class="p">((</span><span class="n">CL_unitless</span><span class="o">/</span><span class="n">CLα</span><span class="p">)</span><span class="o">*</span><span class="n">radian</span><span class="p">)</span>
+<span class="n">α</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(1.90919406, &#39;degree&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLmax</span> <span class="o">=</span> <span class="mf">1.4</span><span class="o">*</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span>
+<span class="n">Vstall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">W</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ρ</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">CLmax</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cruise speed: </span><span class="si">{</span><span class="n">V</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;m/s&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, Stall speed: </span><span class="si">{</span><span class="n">Vstall</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cruise speed: 8.33 m/s, Stall speed: 2.23 m/s
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wing-loading-and-thrust-to-weight-ratio">
+<h2>Wing Loading and Thrust to Weight Ratio<a class="headerlink" href="#wing-loading-and-thrust-to-weight-ratio" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WCL</span> <span class="o">=</span> <span class="n">W</span><span class="o">/</span><span class="p">(</span><span class="n">S</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wing loading: </span><span class="si">{</span><span class="n">WCL</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;kg/m**3&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wing loading: 5.11 kg/m**3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TtoW</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TtoW</span><span class="o">*</span><span class="n">W</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Required thrust: </span><span class="si">{</span><span class="n">T</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;kg&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Required thrust: 3.30 kg
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="propulsion-system">
+<h2>Propulsion System<a class="headerlink" href="#propulsion-system" title="Permalink to this headline">¶</a></h2>
+<p>The propulsion system selection is identical to iteration 4 (16x10/500Kv/6S), because the weight has only been slightly adjusted.</p>
+</div>
+<div class="section" id="fpv-system">
+<h2>FPV System<a class="headerlink" href="#fpv-system" title="Permalink to this headline">¶</a></h2>
+<p>I’ll be using Holybro’s <a class="reference external" href="https://shop.holybro.com/micro-osd-v2_p1207.html"><code class="docutils literal notranslate"><span class="pre">Micro</span> <span class="pre">OSD</span> <span class="pre">V2</span></code></a> + <a class="reference external" href="https://shop.holybro.com/atlatl-hv-micro_p1186.html"><code class="docutils literal notranslate"><span class="pre">Atlatl</span> <span class="pre">HV</span> <span class="pre">micro</span></code></a>. The former uses 5V power from the telemetry port and the latter can run off of the 6S pack.</p>
+<p>Hobbyking currently has an excellent offer (€26.09) on the <a class="reference external" href="https://hobbyking.com/en_us/quanum-cyclops-diversity-fpv-goggle.html"><code class="docutils literal notranslate"><span class="pre">Quanum</span> <span class="pre">Cyclops</span> <span class="pre">Diversity</span> <span class="pre">DVR</span> <span class="pre">FPV</span> <span class="pre">Goggle</span></code></a>, which as the name suggests are a single-screen model with build-in DVR. They are 5.8GHz 40CH, like the <code class="docutils literal notranslate"><span class="pre">Atlatl</span> <span class="pre">HV</span> <span class="pre">micro</span></code> VTX.</p>
+</div>
+<div class="section" id="servos">
+<h2>Servos<a class="headerlink" href="#servos" title="Permalink to this headline">¶</a></h2>
+<p>By using <a class="reference external" href="https://www.radiocontrolinfo.com/information/rc-calculators/rc-airplane-calculator/#Torque">Radio Control Info’s Servo Torque Calculator</a> I calculated that I need servos with at least 5kg of torque for the ailerons.</p>
+<p>I decided to go with four of the <a class="reference external" href="https://hobbyking.com/en_us/hxt-10kg-servo-metal-gear-10kg-0-16sec-55g.html"><code class="docutils literal notranslate"><span class="pre">HXT12K</span> <span class="pre">Metal</span> <span class="pre">Gear</span> <span class="pre">Servo</span> <span class="pre">25T</span> <span class="pre">11kg</span> <span class="pre">/</span> <span class="pre">0.16sec</span> <span class="pre">/</span> <span class="pre">55g</span> </code></a> (two in the wing for the aelerons and two in the fuselage for the elevator + rudder). They produce ample torque for all control surfaces.</p>
+<p>I did consider the <a class="reference external" href="https://hobbyking.com/en_us/turnigy-tgy-813-slim-wing-ds-mg-servo.html?queryID=&amp;objectID=74683&amp;indexName=hbk_live_magento_en_us_products_hbk_price_stock_7_group_0_asc"><code class="docutils literal notranslate"><span class="pre">Turnigy</span> <span class="pre">TGY-813</span> <span class="pre">Slim</span> <span class="pre">Wing</span> <span class="pre">DS/MG</span> <span class="pre">Servo</span> <span class="pre">25T</span> <span class="pre">9.0kg</span> <span class="pre">/</span> <span class="pre">0.09sec</span> <span class="pre">/</span> <span class="pre">30g</span></code></a>, which are quite a bit lighter and of course more low profile. However, the HXT12K’s fit in the wing anyway, and my wrong weight estimate of 140g vs the actual 220g will not make <em>that</em> big of a difference. There were not that many other options outside of these two categories, at least not with 3+kg torque.</p>
+</div>
+<div class="section" id="radio">
+<h2>Radio<a class="headerlink" href="#radio" title="Permalink to this headline">¶</a></h2>
+<p>I went with the incredibly simple <a class="reference external" href="https://hobbyking.com/en_us/turnigy-tgy-i4x-mode-2-afhds-afhds-2a-switchable-4ch-transmitter-receiver.html"><code class="docutils literal notranslate"><span class="pre">Turnigy</span> <span class="pre">TGY-i4X</span> <span class="pre">Mode</span> <span class="pre">2</span> <span class="pre">AFHDS/AFHDS</span> <span class="pre">2A</span> <span class="pre">Switchable</span> <span class="pre">4CH</span> <span class="pre">Transmitter/Receiver</span> </code></a>. It has no special qualifications except for having 4 channels and being the cheapest option. On the receiving end I’ll be using the <a class="reference external" href="https://hobbyking.com/en_us/fs-a8s-2-4g-8ch-mini-receiver-with-ppm-i-bus-sbus-output.html"><code class="docutils literal notranslate"><span class="pre">FS-A8S</span> <span class="pre">2.4Ghz</span> <span class="pre">8CH</span> <span class="pre">Mini</span> <span class="pre">Receiver</span> <span class="pre">with</span> <span class="pre">PPM</span> <span class="pre">i-BUS</span> <span class="pre">SBUS</span> <span class="pre">Output</span></code></a> for SBus output.</p>
+<p>I was considering using a completely digital system (using the 2-way telemetry connection for control) as I do plan on flying autonomously for the most part, but decided against it for safety/redundancy reasons.</p>
+</div>
+<div class="section" id="bom">
+<h2>BOM<a class="headerlink" href="#bom" title="Permalink to this headline">¶</a></h2>
+<p>Also available as <span class="xref myst">iteration_5-bom.ods</span>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Store</p></th>
+<th class="head"><p>URL</p></th>
+<th class="head"><p>Price estimate</p></th>
+<th class="head"><p>#</p></th>
+<th class="head"><p>Price total</p></th>
+<th class="head"><p>Price to pay</p></th>
+<th class="head"><p>Price actual</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Flight controller</p></td>
+<td><p>Pixhawk 2.4.8</p></td>
+<td><p>second hand</p></td>
+<td><p><a class="reference external" href="https://www.2dehands.be/a/hobby-en-vrije-tijd/modelbouw-radiografisch-helikopters-en-quadcopters/m1658504570-pixhawk-2-4-8-px4-32bit-apm-flight-controller-with-power-mod.html?previousPage=lr">https://www.2dehands.be/a/hobby-en-vrije-tijd/modelbouw-radiografisch-helikopters-en-quadcopters/m1658504570-pixhawk-2-4-8-px4-32bit-apm-flight-controller-with-power-mod.html?previousPage=lr</a></p></td>
+<td><p>40</p></td>
+<td><p>1</p></td>
+<td><p>40</p></td>
+<td><p>0</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Servo</p></td>
+<td><p>HXT12K Metal Gear Servo 25T 11kg / 0.16sec / 55g</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/hxt-10kg-servo-metal-gear-10kg-0-16sec-55g.html">https://hobbyking.com/en_us/hxt-10kg-servo-metal-gear-10kg-0-16sec-55g.html</a></p></td>
+<td><p>8.88</p></td>
+<td><p>4</p></td>
+<td><p>35.52</p></td>
+<td><p>35.52</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Motor</p></td>
+<td><p>PROPDRIVE v2 4258 500KV Brushless Outrunner Motor</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/propdrive-v2-4258-500kv-brushless-outrunner-motor.html">https://hobbyking.com/en_us/propdrive-v2-4258-500kv-brushless-outrunner-motor.html</a></p></td>
+<td><p>46.1</p></td>
+<td><p>1</p></td>
+<td><p>46.1</p></td>
+<td><p>46.1</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Prop</p></td>
+<td><p>TGS Precision Sport Propeller 17x10</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/tgs-precision-sport-propeller-17x10-1pc.html">https://hobbyking.com/en_us/tgs-precision-sport-propeller-17x10-1pc.html</a></p></td>
+<td><p>6.14</p></td>
+<td><p>3</p></td>
+<td><p>18.42</p></td>
+<td><p>18.42</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>ESC</p></td>
+<td><p>YEP 80A (2~6S) SBEC</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/yep-80a-2-6s-sbec-brushless-speed-controller.html">https://hobbyking.com/en_us/yep-80a-2-6s-sbec-brushless-speed-controller.html</a></p></td>
+<td><p>43.49</p></td>
+<td><p>1</p></td>
+<td><p>43.49</p></td>
+<td><p>43.49</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Battery</p></td>
+<td><p>Turnigy nano-tech 4000mAh 6S 35~70C</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/turnigy-nano-tech-4000mah-6s-35-70c-lipo-pack-w-xt-90.html">https://hobbyking.com/en_us/turnigy-nano-tech-4000mah-6s-35-70c-lipo-pack-w-xt-90.html</a></p></td>
+<td><p>63.39</p></td>
+<td><p>1</p></td>
+<td><p>63.39</p></td>
+<td><p>63.39</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Radio transmitter</p></td>
+<td><p>Turnigy TGY-i4X Mode 2 AFHDS/AFHDS 2A Switchable 4CH Transmitter/Receiver</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/turnigy-tgy-i4x-mode-2-afhds-afhds-2a-switchable-4ch-transmitter-receiver.html">https://hobbyking.com/en_us/turnigy-tgy-i4x-mode-2-afhds-afhds-2a-switchable-4ch-transmitter-receiver.html</a></p></td>
+<td><p>31.49</p></td>
+<td><p>1</p></td>
+<td><p>31.49</p></td>
+<td><p>31.49</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Radio receiver</p></td>
+<td><p>FS-A8S 2.4Ghz 8CH Mini Receiver with PPM i-BUS SBUS Output</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/fs-a8s-2-4g-8ch-mini-receiver-with-ppm-i-bus-sbus-output.html">https://hobbyking.com/en_us/fs-a8s-2-4g-8ch-mini-receiver-with-ppm-i-bus-sbus-output.html</a></p></td>
+<td><p>7.59</p></td>
+<td><p>1</p></td>
+<td><p>7.59</p></td>
+<td><p>7.59</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>FPV goggles</p></td>
+<td><p>Quanum Cyclops Diversity DVR FPV Goggle</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/quanum-cyclops-diversity-fpv-goggle.html">https://hobbyking.com/en_us/quanum-cyclops-diversity-fpv-goggle.html</a></p></td>
+<td><p>26.09</p></td>
+<td><p>1</p></td>
+<td><p>26.09</p></td>
+<td><p>26.09</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>FPV Cam</p></td>
+<td><p>CADDX Baby Ratel Starlight 1.8mm 1200TVL 14x14mm 4.6g FPV Camera w/160° FOV (Yellow)</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/caddx-baby-ratel-starlight-1-8mm-1200tvl-14x14mm-4-6g-fpv-camera-w-160-fov-yellow.html">https://hobbyking.com/en_us/caddx-baby-ratel-starlight-1-8mm-1200tvl-14x14mm-4-6g-fpv-camera-w-160-fov-yellow.html</a></p></td>
+<td><p>25.51</p></td>
+<td><p>1</p></td>
+<td><p>25.51</p></td>
+<td><p>25.51</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>FPV OSD</p></td>
+<td><p>Micro OSD V2</p></td>
+<td><p>Holybro</p></td>
+<td><p><a class="reference external" href="https://shop.holybro.com/micro-osd-v2_p1207.html">https://shop.holybro.com/micro-osd-v2_p1207.html</a></p></td>
+<td><p>13.17</p></td>
+<td><p>1</p></td>
+<td><p>13.17</p></td>
+<td><p>13.17</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>FPV VTX</p></td>
+<td><p>Atlatl HV micro</p></td>
+<td><p>Holybro</p></td>
+<td><p><a class="reference external" href="https://shop.holybro.com/atlatl-hv-micro_p1186.html">https://shop.holybro.com/atlatl-hv-micro_p1186.html</a></p></td>
+<td><p>17.29</p></td>
+<td><p>1</p></td>
+<td><p>17.29</p></td>
+<td><p>17.29</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Telemetry</p></td>
+<td><p>Transceiver Telemetry Radio V3</p></td>
+<td><p>Holybro</p></td>
+<td><p><a class="reference external" href="https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html">https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html</a></p></td>
+<td><p>37.05</p></td>
+<td><p>1</p></td>
+<td><p>37.05</p></td>
+<td><p>37.05</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>GPS</p></td>
+<td><p>Pixhawk4 2nd GPS Module</p></td>
+<td><p>Holybro</p></td>
+<td><p><a class="reference external" href="https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html">https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html</a></p></td>
+<td><p>34.58</p></td>
+<td><p>1</p></td>
+<td><p>34.58</p></td>
+<td><p>34.58</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Charger</p></td>
+<td><p>Turnigy P606 LiPoly/LiFe AC/DC Charger (EU Plug)</p></td>
+<td><p>HobbyKing</p></td>
+<td><p><a class="reference external" href="https://hobbyking.com/en_us/pd606-charger-eu-plug.html">https://hobbyking.com/en_us/pd606-charger-eu-plug.html</a></p></td>
+<td><p>43.15</p></td>
+<td><p>1</p></td>
+<td><p>43.15</p></td>
+<td><p>43.15</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>482.84</p></td>
+<td><p>442.84</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./design"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="iteration_4.html" title="previous page">Iteration 4</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Pieter Fiers<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
