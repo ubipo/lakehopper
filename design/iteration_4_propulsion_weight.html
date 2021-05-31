@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iteration 2 &#8212; Lakehopper</title>
+    <title>Iteration 4: Propulsion Weight &#8212; Lakehopper</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,11 +49,9 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://paddy.pfiers.net/design/iteration_2.html" />
+    <link rel="canonical" href="https://paddy.pfiers.net/design/iteration_4_propulsion_weight.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Iteration 3" href="iteration_3.html" />
-    <link rel="prev" title="Iteration 1" href="iteration_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,42 +86,17 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="README.html">
    Design
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_1.html">
-     Iteration 1
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Iteration 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_3.html">
-     Iteration 3
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_4.html">
-     Iteration 4
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_5.html">
-     Iteration 5
-    </a>
-   </li>
+  <ul class="simple">
   </ul>
  </li>
 </ul>
@@ -167,7 +140,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/design/iteration_2.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/design/iteration_4_propulsion_weight.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -187,7 +160,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/iteration_2.ipynb"><button
+        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/iteration_4_propulsion_weight.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -207,7 +180,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ubipo/paddy/master?urlpath=tree/design/iteration_2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ubipo/paddy/master?urlpath=tree/design/iteration_4_propulsion_weight.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -243,10 +216,20 @@
   <a class="reference internal nav-link" href="#airfoil-selection">
    Airfoil Selection
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wing-loading-and-thrust-to-weight-ratio">
+   Wing Loading and Thrust to Weight Ratio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#propulsion-system">
+   Propulsion system
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes">
-     Notes
+    <a class="reference internal nav-link" href="#propulsion-system-component-selection">
+     Propulsion system component selection
     </a>
    </li>
   </ul>
@@ -262,13 +245,22 @@
         
               <div>
                 
-  <div class="section" id="iteration-2">
-<h1>Iteration 2<a class="headerlink" href="#iteration-2" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="iteration-4-propulsion-weight">
+<h1>Iteration 4: Propulsion Weight<a class="headerlink" href="#iteration-4-propulsion-weight" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unyt</span> <span class="kn">import</span> <span class="n">km</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">kg</span><span class="p">,</span> <span class="n">hr</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">radian</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unyt</span> <span class="kn">import</span> <span class="n">km</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">inch</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">kg</span><span class="p">,</span> <span class="n">hr</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">radian</span><span class="p">,</span> <span class="n">volt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">π</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">=</span> <span class="n">minute</span><span class="o">**-</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -283,13 +275,13 @@
 </div>
 <p>Goals:</p>
 <ul class="simple">
-<li><p>Decrease aspect ratio</p></li>
+<li><p>Use more accurate weight estimate with new power system components</p></li>
 </ul>
 <div class="section" id="initial-design">
 <h2>Initial Design<a class="headerlink" href="#initial-design" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">2850</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># wingspan</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">3050</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># wingspan</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">230</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># chord</span>
 </pre></div>
 </div>
@@ -310,46 +302,37 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(12.39130435, &#39;(dimensionless)&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(13.26086957, &#39;(dimensionless)&#39;)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Better, although I may have overdone it</p>
 </div>
 <div class="section" id="weight-estimate">
 <h2>Weight Estimate<a class="headerlink" href="#weight-estimate" title="Permalink to this headline">¶</a></h2>
-<p>Weight taken from freecad model &gt; Parts spreadsheet.<br />
-Iteration not saved.</p>
+<p>Weight estimate increased from 2340 to 3047 (increased weight of battery, ESC, motor, and future expansion + added prop weight estimate).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="mi">3700</span><span class="o">*</span><span class="n">g</span> <span class="c1"># weight</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="mi">3047</span><span class="o">*</span><span class="n">g</span> <span class="c1"># weight</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><img alt="iteration_3-weight-tabulation" src="../_images/iteration_3-weight-tabulation.png" /></p>
 </div>
 <div class="section" id="airfoil-selection">
 <h2>Airfoil Selection<a class="headerlink" href="#airfoil-selection" title="Permalink to this headline">¶</a></h2>
-<p>See also:
-<a class="reference external" href="https://youtu.be/kAXN3MlQxxc">https://youtu.be/kAXN3MlQxxc</a></p>
+<p>Cruise speed lowered from 45 to 30.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="mi">45</span><span class="o">*</span><span class="n">km</span><span class="o">/</span><span class="n">hr</span> <span class="c1"># cruise speed</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="mi">30</span><span class="o">*</span><span class="n">km</span><span class="o">/</span><span class="n">hr</span> <span class="c1"># cruise speed</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Randomly selected, see <a class="reference external" href="https://rcmodelhub.com/how-fast-do-rc-planes-go/#0-typical-speeds-of-popular-rc-planes-">https://rcmodelhub.com/how-fast-do-rc-planes-go/#0-typical-speeds-of-popular-rc-planes-</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CL</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">W</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ρ</span><span class="o">*</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">S</span><span class="p">)</span>
-<span class="n">CL</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;s**2/m&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(0.05897975, &#39;s**2/m&#39;)
 </pre></div>
 </div>
 </div>
@@ -362,24 +345,16 @@ Iteration not saved.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>195000.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130000.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>As per: <a class="reference external" href="http://airfoiltools.com/airfoil/details?airfoil=clarky-il">http://airfoiltools.com/airfoil/details?airfoil=clarky-il</a><br />
-Clark Y chosen because:</p>
-<ul class="simple">
-<li><p>No need for inverted flight</p></li>
-<li><p>Long term goal is efficiency</p></li>
-<li><p>Relatively easy foam manufacturing</p></li>
-</ul>
 <p><img alt="clarky-cl-v-alpha" src="../_images/clarky-cl-v-alpha.png" /></p>
 <p>From bottom left up: Blue = 50,000  Orange = 100,000  Green = 200,000</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rough estimations</span>
-<span class="n">α0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.75</span><span class="o">*</span><span class="n">degree</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.75</span><span class="o">*</span><span class="n">degree</span>
 <span class="n">Clα</span> <span class="o">=</span> <span class="mf">1.05</span>
 <span class="n">e</span> <span class="o">=</span> <span class="mf">0.8</span>
 </pre></div>
@@ -389,12 +364,6 @@ Clark Y chosen because:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLα</span> <span class="o">=</span> <span class="n">Clα</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">Clα</span><span class="o">/</span><span class="p">(</span><span class="n">π</span><span class="o">*</span><span class="n">e</span><span class="o">*</span><span class="n">AR</span><span class="p">)))</span>
-<span class="n">CLα</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(1.01575315, &#39;(dimensionless)&#39;)
 </pre></div>
 </div>
 </div>
@@ -402,12 +371,6 @@ Clark Y chosen because:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CL_unitless</span> <span class="o">=</span> <span class="n">CL</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="s1">&#39;s**2/m&#39;</span><span class="p">)</span>
-<span class="n">CL_unitless</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05897974750540949
 </pre></div>
 </div>
 </div>
@@ -420,26 +383,102 @@ Clark Y chosen because:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(-0.42311827, &#39;degree&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unyt_quantity(1.99785477, &#39;degree&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <p><img alt="clarky-cl-cd-v-alpha" src="../_images/clarky-cl-cd-v-alpha.png" /></p>
-<div class="section" id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
-<p>I previously used a lift curve slope (Clα) of 0.083 (instead of 1.05), because I misread the Cl v Alpha graph. This resulted in an α of 0.667 or 38°. My conclusion was:</p>
-<blockquote>
-<div><p>Oops, angle of attack for cruise is uncomfortably close to aerodynamic stall. It should ideally be about 5° (see Cl/Cd v Alpha below).</p>
-<p>We can increase CL by:</p>
+<p>By increasing the weight our cruise angle of attack increased to 2° which is a lot closer to the optimal. That’s a nice consequence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLmax</span> <span class="o">=</span> <span class="mf">1.4</span><span class="o">*</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span>
+<span class="n">Vstall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">W</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ρ</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">CLmax</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cruise speed: </span><span class="si">{</span><span class="n">V</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;m/s&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, Stall speed: </span><span class="si">{</span><span class="n">Vstall</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cruise speed: 8.33 m/s, Stall speed: 2.25 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Worse than the 1.97 m/s of iteration 3 but still OK.</p>
+</div>
+<div class="section" id="wing-loading-and-thrust-to-weight-ratio">
+<h2>Wing Loading and Thrust to Weight Ratio<a class="headerlink" href="#wing-loading-and-thrust-to-weight-ratio" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WCL</span> <span class="o">=</span> <span class="n">W</span><span class="o">/</span><span class="p">(</span><span class="n">S</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wing loading: </span><span class="si">{</span><span class="n">WCL</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;kg/m**3&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wing loading: 5.19 kg/m**3
+</pre></div>
+</div>
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type of Aircraft</p></th>
+<th class="head"><p>WCL (kg/m^3)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gliders</p></td>
+<td><p>under 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trainers</p></td>
+<td><p>5-7</p></td>
+</tr>
+<tr class="row-even"><td><p>Sport Aerobatic</p></td>
+<td><p>8-10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Racers</p></td>
+<td><p>11-13</p></td>
+</tr>
+<tr class="row-even"><td><p>Scale</p></td>
+<td><p>over 15</p></td>
+</tr>
+</tbody>
+</table>
+<p>This could probably be a bit lower. Although my eventual vision is more like a glider-with-enough-power-for-autonomous-takeoffs type design, so I guess it’s not surprising I won’t have the most incredible glide slope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TtoW</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TtoW</span><span class="o">*</span><span class="n">W</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Required thrust: </span><span class="si">{</span><span class="n">T</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;kg&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Required thrust: 3.35 kg
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="propulsion-system">
+<h2>Propulsion system<a class="headerlink" href="#propulsion-system" title="Permalink to this headline">¶</a></h2>
+<p>Refer back to iteration 3 for kv and prop pitch Y estimates as we did not change the airspeed, so the required kv ratings and pitch Y estimates stay the same.</p>
+<p>Increasing the weight did increase the required thrust from 2.6 to 3.35kg.</p>
+<div class="section" id="propulsion-system-component-selection">
+<h3>Propulsion system component selection<a class="headerlink" href="#propulsion-system-component-selection" title="Permalink to this headline">¶</a></h3>
+<p>Looking back at the options I outlined in iteration 3, I couldn’t find anything which can sustain the 3.35kg required thrust. I decided to forgo that requirement. A 16x10 inch prop at full throttle may not be sustainable continuously for the <a class="reference external" href="https://hobbyking.com/en_us/propdrive-v2-4258-500kv-brushless-outrunner-motor.html"><code class="docutils literal notranslate"><span class="pre">PROPDRIVE</span> <span class="pre">v2</span> <span class="pre">4258</span> <span class="pre">500KV</span></code></a>, but I think it’ll be fine because:</p>
 <ul class="simple">
-<li><p>Increasing air speed</p></li>
-<li><p>Increasing wing area</p></li>
+<li><p>This would only occur at takeoff</p></li>
+<li><p>The manufacturer published the 16x10 test results so at least it’s not <em>completely</em> fatal to run it like that</p></li>
+<li><p>rcplanes.online’s excellent <a class="reference external" href="https://rcplanes.online/calc_motor.htm">Electric Motor &amp; Prop Combo Estimator</a> indicates the 16x10/500Kv/6S combination should be able to generate 3.5kg of thrust &#64; 46.7A (below the Propdrive’s 60A max). I probably chose a bunch of paramters wrong, but still, it indicates the current draw will not be completely ludicrous.</p></li>
 </ul>
-<p>Decreasing weight is not a possibility</p>
-</div></blockquote>
-<p>As α is now well below 10° (the point of aerodynamic stall for the Clark Y), this is not really applicable anymore. In fact, I have since actually changed my weight estimate downward because I had a feeling I was overestimating the wing weight (3744 -&gt; 2340).</p>
-<p>Since the cruise angle of attack is now actually on the low side, I’ll lower the airspeed in the next iteration. This will hopefully get us closer to 5°. Not exactly 5, but at least something higher than 0.</p>
+<p>In conclusion, I will be keeping the selction I made in iteration 3:<br />
+Motor: <a class="reference external" href="https://hobbyking.com/en_us/propdrive-v2-4258-500kv-brushless-outrunner-motor.html"><code class="docutils literal notranslate"><span class="pre">PROPDRIVE</span> <span class="pre">v2</span> <span class="pre">4258</span> <span class="pre">500KV</span> <span class="pre">Brushless</span> <span class="pre">Outrunner</span> <span class="pre">Motor</span></code></a> - €46.10<br />
+Prop: <a class="reference external" href="https://hobbyking.com/en_us/tgs-precision-sport-propeller-17x10-1pc.html"><code class="docutils literal notranslate"><span class="pre">TGS</span> <span class="pre">Precision</span> <span class="pre">Sport</span> <span class="pre">Propeller</span> <span class="pre">17x10</span></code></a> - €6.14 * 3 = €18.42<br />
+ESC: <a class="reference external" href="https://hobbyking.com/en_us/yep-80a-2-6s-sbec-brushless-speed-controller.html"><code class="docutils literal notranslate"><span class="pre">YEP</span> <span class="pre">80A</span> <span class="pre">(2~6S)</span> <span class="pre">SBEC</span></code></a> - €43.49<br />
+Battery: <a class="reference external" href="https://hobbyking.com/en_us/turnigy-nano-tech-4000mah-6s-35-70c-lipo-pack-w-xt-90.html"><code class="docutils literal notranslate"><span class="pre">Turnigy</span> <span class="pre">nano-tech</span> <span class="pre">4000mAh</span> <span class="pre">6S</span> <span class="pre">35~70C</span></code></a> - €63.39<br />
+Total power system: €171.40</p>
 </div>
 </div>
 </div>
@@ -469,8 +508,6 @@ Clark Y chosen because:</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="iteration_1.html" title="previous page">Iteration 1</a>
-    <a class='right-next' id="next-link" href="iteration_3.html" title="next page">Iteration 3</a>
 
         </div>
         

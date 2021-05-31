@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iteration 1 &#8212; Lakehopper</title>
+    <title>Iteration 1: Aspect Ratio &#8212; Lakehopper</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,11 +49,9 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://paddy.pfiers.net/design/iteration_1.html" />
+    <link rel="canonical" href="https://paddy.pfiers.net/design/iteration_1_ar.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Iteration 2" href="iteration_2.html" />
-    <link rel="prev" title="Design" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,42 +86,17 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="README.html">
    Design
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Iteration 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_2.html">
-     Iteration 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_3.html">
-     Iteration 3
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_4.html">
-     Iteration 4
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_5.html">
-     Iteration 5
-    </a>
-   </li>
+  <ul class="simple">
   </ul>
  </li>
 </ul>
@@ -167,7 +140,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/design/iteration_1.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/design/iteration_1_ar.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -187,7 +160,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/iteration_1.ipynb"><button
+        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/iteration_1_ar.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -207,7 +180,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ubipo/paddy/master?urlpath=tree/design/iteration_1.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ubipo/paddy/master?urlpath=tree/design/iteration_1_ar.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -245,8 +218,8 @@
         
               <div>
                 
-  <div class="section" id="iteration-1">
-<h1>Iteration 1<a class="headerlink" href="#iteration-1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="iteration-1-aspect-ratio">
+<h1>Iteration 1: Aspect Ratio<a class="headerlink" href="#iteration-1-aspect-ratio" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unyt</span> <span class="kn">import</span> <span class="n">m</span><span class="p">,</span> <span class="n">mm</span>
@@ -254,6 +227,8 @@
 </div>
 </div>
 </div>
+<p>TODO: references</p>
+<p><a class="reference external" href="https://www.grc.nasa.gov/www/k-12/airplane/geom.html">https://www.grc.nasa.gov/www/k-12/airplane/geom.html</a></p>
 <div class="section" id="initial-design">
 <h2>Initial design<a class="headerlink" href="#initial-design" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -267,7 +242,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span> <span class="c1"># wing area</span>
-<span class="n">AR</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">S</span>
+<span class="n">AR</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">S</span> <span class="c1"># = b/c because it&#39;s a rectangle</span>
 </pre></div>
 </div>
 </div>
@@ -285,6 +260,7 @@
 </div>
 </div>
 <p>Hmmm ok this is a little much…</p>
+<p>The higher the better obviously but I want to be realistic with the materials I plan to use (styrofoam &amp; wood spar) which means &lt;13 is probably a better starting point.</p>
 </div>
 </div>
 
@@ -313,8 +289,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">Design</a>
-    <a class='right-next' id="next-link" href="iteration_2.html" title="next page">Iteration 2</a>
 
         </div>
         
