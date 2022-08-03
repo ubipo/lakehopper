@@ -1,2 +1,14 @@
 /_build/
-/env-lakehopper/
+env-*/
+.history/
+__pycache__/
+node_modules/
+scratch/
+.ipynb_checkpoints/
+.ipynb_checkpoints
+/vision/datasets/*
+!/vision/datasets/README.md
+planner/target/
+planner/data/
+.vscode
+
