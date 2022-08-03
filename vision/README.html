@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Design &#8212; Lakehopper</title>
+    <title>TPU &#8212; Lakehopper</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,11 +49,9 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://paddy.pfiers.net/design/README.html" />
+    <link rel="canonical" href="https://paddy.pfiers.net/vision/README.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Iteration 1: Aspect Ratio" href="iteration_1_ar.html" />
-    <link rel="prev" title="Lakehopper" href="../README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,51 +86,6 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   Design
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_1_ar.html">
-     Iteration 1: Aspect Ratio
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_2_weight_and_airfoil.html">
-     Iteration 2: Weight and Airfoil
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_3_propulsion.html">
-     Iteration 3: Propulsion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_4_propulsion_weight.html">
-     Iteration 4: Propulsion Weight
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_5_fpv_weight.html">
-     Iteration 5: FPV Weight
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iteration_6_stability.html">
-     Iteration 6: Stability
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -172,7 +125,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/design/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/vision/README.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -192,7 +145,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/README.md"><button
+        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/vision/README.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -220,10 +173,33 @@
         
               <div>
                 
-  <div class="section" id="design">
-<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
-<p>As per <a class="reference external" href="https://github.com/cmontalvo251/LaTeX/blob/master/Aircraft_Flight_Mechanics/Aircraft_Flight_Mechanics.pdf">https://github.com/cmontalvo251/LaTeX/blob/master/Aircraft_Flight_Mechanics/Aircraft_Flight_Mechanics.pdf</a></p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="tpu">
+<h1>TPU<a class="headerlink" href="#tpu" title="Permalink to this headline">¶</a></h1>
+<p>Creating:</p>
+<p>EU, vm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">alpha</span> <span class="n">compute</span> <span class="n">tpus</span> <span class="n">tpu</span><span class="o">-</span><span class="n">vm</span> <span class="n">create</span> <span class="n">lakehopper</span><span class="o">-</span><span class="n">semseg</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">vm</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">europe</span><span class="o">-</span><span class="n">west4</span><span class="o">-</span><span class="n">a</span> <span class="o">--</span><span class="n">accelerator</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;v3-8&#39;</span> <span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;tpu-vm-tf-2.9.1-v4&#39;</span>
+</pre></div>
+</div>
+<p>EU, node:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">compute</span> <span class="n">tpus</span> <span class="n">create</span> <span class="n">lakehopper</span><span class="o">-</span><span class="n">semseg</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">europe</span><span class="o">-</span><span class="n">west4</span><span class="o">-</span><span class="n">a</span> <span class="o">--</span><span class="n">accelerator</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;v3-8&#39;</span> <span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;2.9.1&#39;</span>
+</pre></div>
+</div>
+<p>US</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">alpha</span> <span class="n">compute</span> <span class="n">tpus</span> <span class="n">tpu</span><span class="o">-</span><span class="n">vm</span> <span class="n">create</span> <span class="n">lakehopper</span><span class="o">-</span><span class="n">semseg</span><span class="o">-</span><span class="n">us</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">us</span><span class="o">-</span><span class="n">central1</span><span class="o">-</span><span class="n">f</span> <span class="o">--</span><span class="n">accelerator</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;v2-8&#39;</span> <span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;tpu-vm-tf-2.9.1-v4&#39;</span>
+</pre></div>
+</div>
+<p>US, node:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">compute</span> <span class="n">tpus</span> <span class="n">create</span> <span class="n">lakehopper</span><span class="o">-</span><span class="n">semseg</span><span class="o">-</span><span class="n">us</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">us</span><span class="o">-</span><span class="n">central1</span><span class="o">-</span><span class="n">f</span> <span class="o">--</span><span class="n">accelerator</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;v2-8&#39;</span> <span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;2.9.1&#39;</span>
+</pre></div>
+</div>
+<p>Starting:
+EU</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">alpha</span> <span class="n">compute</span> <span class="n">tpus</span> <span class="n">tpu</span><span class="o">-</span><span class="n">vm</span> <span class="n">start</span> <span class="n">lakehopper</span><span class="o">-</span><span class="n">semseg</span><span class="o">-</span><span class="n">eu</span>
+</pre></div>
+</div>
+<p>US</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">alpha</span> <span class="n">compute</span> <span class="n">tpus</span> <span class="n">tpu</span><span class="o">-</span><span class="n">vm</span> <span class="n">start</span> <span class="n">lakehopper</span><span class="o">-</span><span class="n">semseg</span><span class="o">-</span><span class="n">us</span>
+</pre></div>
 </div>
 </div>
 
@@ -240,7 +216,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./design"
+            path: "./vision"
         },
         predefinedOutput: true
     }
@@ -252,8 +228,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">Lakehopper</a>
-    <a class='right-next' id="next-link" href="iteration_1_ar.html" title="next page">Iteration 1: Aspect Ratio</a>
 
         </div>
         

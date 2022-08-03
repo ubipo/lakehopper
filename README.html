@@ -52,7 +52,6 @@
     <link rel="canonical" href="https://paddy.pfiers.net/README.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Design" href="design/README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,51 +86,6 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="design/README.html">
-   Design
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="design/iteration_1_ar.html">
-     Iteration 1: Aspect Ratio
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="design/iteration_2_weight_and_airfoil.html">
-     Iteration 2: Weight and Airfoil
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="design/iteration_3_propulsion.html">
-     Iteration 3: Propulsion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="design/iteration_4_propulsion_weight.html">
-     Iteration 4: Propulsion Weight
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="design/iteration_5_fpv_weight.html">
-     Iteration 5: FPV Weight
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="design/iteration_6_stability.html">
-     Iteration 6: Stability
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -211,6 +165,41 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#milestones">
+   Milestones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mav">
+     MAV
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lake-hopping">
+     Lake hopping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solar-power">
+     Solar power
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autonomy">
+     Autonomy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -221,7 +210,42 @@
                 
   <div class="section" id="lakehopper">
 <h1>Lakehopper<a class="headerlink" href="#lakehopper" title="Permalink to this headline">¶</a></h1>
+<p>Lakehopper is my ongoing long-term project to create a solar-powered
+autonomous MAV that rests on lakes during nights and overcast days.</p>
+<p>I essentially want to make a migrating bird that survives off of photosynthesis.</p>
+<p>That goal is a bit lofty, so I’m doing this by working towards four
+different milestones.</p>
+<div class="section" id="milestones">
+<h2>Milestones<a class="headerlink" href="#milestones" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mav">
+<h3>MAV<a class="headerlink" href="#mav" title="Permalink to this headline">¶</a></h3>
+<p>The first milestone is to build a flying MAV.</p>
+</div>
+<div class="section" id="lake-hopping">
+<h3>Lake hopping<a class="headerlink" href="#lake-hopping" title="Permalink to this headline">¶</a></h3>
+<p>Lake hopping involves:</p>
+<ul class="simple">
+<li><p>Waterproofing</p></li>
+<li><p>Water landings</p></li>
+<li><p>Water takeoffs</p></li>
+</ul>
+</div>
+<div class="section" id="solar-power">
+<h3>Solar power<a class="headerlink" href="#solar-power" title="Permalink to this headline">¶</a></h3>
+<p>‘Solar power’ in my context means endless flight with breaks when necessary.</p>
+<p>A plane that needs to charge for a week and can then do a two hour flight would
+not be ideal but still pass. My ideal power generation graph however would
+probably look something like this:</p>
+</div>
+<div class="section" id="autonomy">
+<h3>Autonomy<a class="headerlink" href="#autonomy" title="Permalink to this headline">¶</a></h3>
+<p>The autonomy milestone can be subdivided into automatic flight,
+water landings and takeoffs, and navigation.</p>
+<p>I will not be implementing automatic flight myself. This will be handled by the
+<a class="reference external" href="https://ardupilot.org">Ardupilot</a> autopilot software.</p>
 <div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 </div>
 
@@ -250,7 +274,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="design/README.html" title="next page">Design</a>
 
         </div>
         
