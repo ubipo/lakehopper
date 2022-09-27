@@ -34,10 +34,16 @@ export ENCODERS="MobileNetV2 InceptionResNetV2"
 ./train_all.sh
 ```
 
+![Graph of training loss](loss-combined.png)
+
 
 ## Inference
 
-See: [src/lakehopper_semseg/inference.ipynb](src/lakehopper_semseg/inference.ipynb)
+See:
+[src/lakehopper_semseg/inference.ipynb](src/lakehopper_semseg/inference.ipynb)
+
+
+![Grid of model predictions for three sample images](inference.png)
 
 ## Trained models
 
