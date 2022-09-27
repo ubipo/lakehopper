@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lakehopper 2 &#8212; Lakehopper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lakehopper 2 Design &#8212; Lakehopper</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,45 +20,63 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://paddy.pfiers.net/design/2/README.html" />
+    <link rel="canonical" href="https://lakehopper.pfiers.net/design/2/README.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lakehopper Planner" href="../../planner/README.html" />
+    <link rel="prev" title="Iteration 6: Stability" href="../1/iteration_6_stability.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -65,10 +85,12 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
       
       
       <h1 class="site-logo" id="site-title">Lakehopper</h1>
@@ -77,102 +99,295 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Lakehopper
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../README.html">
+   Design
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1/README.html">
+     Lakehopper 1 Design
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1/iteration_1_ar.html">
+       Iteration 1: Aspect Ratio
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1/iteration_2_weight_and_airfoil.html">
+       Iteration 2: Weight and Airfoil
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1/iteration_3_propulsion.html">
+       Iteration 3: Propulsion
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1/iteration_4_propulsion_weight.html">
+       Iteration 4: Propulsion Weight
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1/iteration_5_fpv_weight.html">
+       Iteration 5: FPV Weight
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1/iteration_6_stability.html">
+       Iteration 6: Stability
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lakehopper 2 Design
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../README.html">
-   Lakehopper
+  <a class="reference internal" href="../../planner/README.html">
+   Lakehopper Planner
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../vision/README.html">
+   Lakehopper Vision
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../vision/datasets/README.html">
+     Datasets
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="simple">
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vision/src/lakehopper_semseg/train.html">
+     Train
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vision/src/lakehopper_semseg/inference.html">
+     Inference
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
+
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/design/2/README.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ubipo/paddy"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        <a class="edit-button" href="https://github.com/ubipo/paddy/edit/master/design/2/README.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ubipo/lakehopper"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ubipo/lakehopper/edit/main/design/2/README.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/design/2/README.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Lakehopper 2
+   Lakehopper 2 Design
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -221,7 +436,7 @@
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
+      <a class="reference internal nav-link" href="#lakehopper-2">
        Lakehopper 2
       </a>
      </li>
@@ -311,25 +526,185 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lakehopper 2 Design</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Lakehopper 2 Design
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#goals">
+     Goals
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature">
+     Literature
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lakehopper-1">
+       Lakehopper 1
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#design-of-a-passive-vertical-takeoff-and-landing-aquatic-uav">
+       Design of a Passive Vertical Takeoff and Landing Aquatic UAV
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#active-vertical-takeoff-of-an-aquatic-uav">
+       Active Vertical Takeoff of an Aquatic UAV
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#development-of-an-aquatic-uav-capable-of-vertical-takeoff-from-water">
+       Development of an aquatic UAV capable of vertical takeoff from water
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fury-slope-wing">
+       Fury Slope Wing
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#design-build-of-a-flying-wing-with-balsa-wood">
+       Design &amp; Build of a Flying Wing (With Balsa Wood)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#general">
+       General
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lakehopper-2">
+       Lakehopper 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elevons">
+     Elevons:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#semseg">
+   Semseg
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-processing">
+     Video processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shot-boundary-detection">
+       Shot boundary detection
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#labeling-tools">
+     Labeling tools
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#labelme">
+       LabelMe
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gofai">
+     GOFAI
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#random-forest">
+       Random forest
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cnn">
+     CNN
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fcn">
+       FCN
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fpn">
+       FPN
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#u-net">
+       U-Net
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#evaluation">
+       Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datasets">
+     Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="lakehopper-2">
-<h1>Lakehopper 2<a class="headerlink" href="#lakehopper-2" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lakehopper-2-design">
+<h1>Lakehopper 2 Design<a class="headerlink" href="#lakehopper-2-design" title="Permalink to this headline">#</a></h1>
 <p>Tilt-rotor active vertical takeoff flying wing</p>
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="literature">
-<h2>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lakehopper-1">
-<h3>Lakehopper 1<a class="headerlink" href="#lakehopper-1" title="Permalink to this headline">¶</a></h3>
+<p>This document is very much still a scratchpad.</p>
+<p>In the meantime, here’s what Lakehopper 2 will <em>probably</em> look like:</p>
+<p><img alt="Lakehopper 2 design preview" src="../../_images/preview.png" /></p>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="literature">
+<h2>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">#</a></h2>
+<section id="lakehopper-1">
+<h3>Lakehopper 1<a class="headerlink" href="#lakehopper-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Chose conventional monoplane design over flying wing because:</p>
 <ul>
@@ -361,9 +736,9 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="design-of-a-passive-vertical-takeoff-and-landing-aquatic-uav">
-<h3>Design of a Passive Vertical Takeoff and Landing Aquatic UAV<a class="headerlink" href="#design-of-a-passive-vertical-takeoff-and-landing-aquatic-uav" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="design-of-a-passive-vertical-takeoff-and-landing-aquatic-uav">
+<h3>Design of a Passive Vertical Takeoff and Landing Aquatic UAV<a class="headerlink" href="#design-of-a-passive-vertical-takeoff-and-landing-aquatic-uav" title="Permalink to this headline">#</a></h3>
 <p>2017
 Richard-Alexandre Peloquin, Dominik Thibault, Alexis Lussier Desbiens</p>
 <ul class="simple">
@@ -416,9 +791,9 @@ with respect to center body along with various other parameters</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="active-vertical-takeoff-of-an-aquatic-uav">
-<h3>Active Vertical Takeoff of an Aquatic UAV<a class="headerlink" href="#active-vertical-takeoff-of-an-aquatic-uav" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="active-vertical-takeoff-of-an-aquatic-uav">
+<h3>Active Vertical Takeoff of an Aquatic UAV<a class="headerlink" href="#active-vertical-takeoff-of-an-aquatic-uav" title="Permalink to this headline">#</a></h3>
 <p>2020
 Étienne Tétreault, David Rancourt, and Alexis Lussier Desbiens</p>
 <ul class="simple">
@@ -474,9 +849,9 @@ with respect to center body along with various other parameters</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="development-of-an-aquatic-uav-capable-of-vertical-takeoff-from-water">
-<h3>Development of an aquatic UAV capable of vertical takeoff from water<a class="headerlink" href="#development-of-an-aquatic-uav-capable-of-vertical-takeoff-from-water" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="development-of-an-aquatic-uav-capable-of-vertical-takeoff-from-water">
+<h3>Development of an aquatic UAV capable of vertical takeoff from water<a class="headerlink" href="#development-of-an-aquatic-uav-capable-of-vertical-takeoff-from-water" title="Permalink to this headline">#</a></h3>
 <p>2019
 Leonard Waldau</p>
 <ul class="simple">
@@ -561,9 +936,9 @@ Leonard Waldau</p>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="fury-slope-wing">
-<h3>Fury Slope Wing<a class="headerlink" href="#fury-slope-wing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fury-slope-wing">
+<h3>Fury Slope Wing<a class="headerlink" href="#fury-slope-wing" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://www.rc-factory.eu/letadla/fun-series/rc-factory-fury-slope-wing">https://www.rc-factory.eu/letadla/fun-series/rc-factory-fury-slope-wing</a></p>
 <ul class="simple">
 <li><p>Very nimble</p></li>
@@ -596,9 +971,9 @@ horizontal strip in center (30% of wingspan)</p></li>
 <li><p>Power system: N/A</p></li>
 <li><p>Total weight: 400-600g</p></li>
 </ul>
-</div>
-<div class="section" id="design-build-of-a-flying-wing-with-balsa-wood">
-<h3>Design &amp; Build of a Flying Wing (With Balsa Wood)<a class="headerlink" href="#design-build-of-a-flying-wing-with-balsa-wood" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="design-build-of-a-flying-wing-with-balsa-wood">
+<h3>Design &amp; Build of a Flying Wing (With Balsa Wood)<a class="headerlink" href="#design-build-of-a-flying-wing-with-balsa-wood" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=2YOK1p4iCDo">https://www.youtube.com/watch?v=2YOK1p4iCDo</a></p>
 <p>Design</p>
 <ul class="simple">
@@ -636,15 +1011,15 @@ up-elevon (climb) =&gt; reduces tip stalling</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="general">
-<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>EPP foam in front for better crash resistance</p></li>
 </ul>
-</div>
-<div class="section" id="id1">
-<h3>Lakehopper 2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="lakehopper-2">
+<h3>Lakehopper 2<a class="headerlink" href="#lakehopper-2" title="Permalink to this headline">#</a></h3>
 <p>Design 1</p>
 <ul class="simple">
 <li><p>Construction</p>
@@ -950,18 +1325,18 @@ Build-in reflex =&gt; need less elevon reflex</p>
 <p>3 degrees</p>
 <p>Wingtips:</p>
 <p>Create vortexes</p>
-</div>
-</div>
-<div class="section" id="elevons">
-<h2>Elevons:<a class="headerlink" href="#elevons" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-<div class="section" id="semseg">
-<h1>Semseg<a class="headerlink" href="#semseg" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="video-processing">
-<h2>Video processing<a class="headerlink" href="#video-processing" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="shot-boundary-detection">
-<h3>Shot boundary detection<a class="headerlink" href="#shot-boundary-detection" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="elevons">
+<h2>Elevons:<a class="headerlink" href="#elevons" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="semseg">
+<h1>Semseg<a class="headerlink" href="#semseg" title="Permalink to this headline">#</a></h1>
+<section id="video-processing">
+<h2>Video processing<a class="headerlink" href="#video-processing" title="Permalink to this headline">#</a></h2>
+<section id="shot-boundary-detection">
+<h3>Shot boundary detection<a class="headerlink" href="#shot-boundary-detection" title="Permalink to this headline">#</a></h3>
 <p>Use average of chi-square distance between 16x16 grids histograms.
 ‘Keyframe’ is middle frame of shot (between two boundaries).</p>
 <p>Only keyframes are used in semseg dataset.</p>
@@ -973,23 +1348,23 @@ Build-in reflex =&gt; need less elevon reflex</p>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="labeling-tools">
-<h2>Labeling tools<a class="headerlink" href="#labeling-tools" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="labelme">
-<h3>LabelMe<a class="headerlink" href="#labelme" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="labeling-tools">
+<h2>Labeling tools<a class="headerlink" href="#labeling-tools" title="Permalink to this headline">#</a></h2>
+<section id="labelme">
+<h3>LabelMe<a class="headerlink" href="#labelme" title="Permalink to this headline">#</a></h3>
 <p>Used by:</p>
 <ul class="simple">
 <li><p>S. et al., 2019</p></li>
 <li><p>Wu et al., 2019</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="gofai">
-<h2>GOFAI<a class="headerlink" href="#gofai" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="random-forest">
-<h3>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="gofai">
+<h2>GOFAI<a class="headerlink" href="#gofai" title="Permalink to this headline">#</a></h2>
+<section id="random-forest">
+<h3>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h3>
 <p>Used by:</p>
 <ul class="simple">
 <li><p>Bhatnagar et al., 2020</p>
@@ -1003,12 +1378,12 @@ properties), 85.1% (w/ textural properties)</p></li>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="cnn">
-<h2>CNN<a class="headerlink" href="#cnn" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fcn">
-<h3>FCN<a class="headerlink" href="#fcn" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="cnn">
+<h2>CNN<a class="headerlink" href="#cnn" title="Permalink to this headline">#</a></h2>
+<section id="fcn">
+<h3>FCN<a class="headerlink" href="#fcn" title="Permalink to this headline">#</a></h3>
 <p>Fully Convolutional Neural Net</p>
 <p>Used by:</p>
 <ul class="simple">
@@ -1060,13 +1435,13 @@ decoder)</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="fpn">
-<h3>FPN<a class="headerlink" href="#fpn" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fpn">
+<h3>FPN<a class="headerlink" href="#fpn" title="Permalink to this headline">#</a></h3>
 <p>Feature Pyramid Network</p>
-</div>
-<div class="section" id="u-net">
-<h3>U-Net<a class="headerlink" href="#u-net" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="u-net">
+<h3>U-Net<a class="headerlink" href="#u-net" title="Permalink to this headline">#</a></h3>
 <p>Todo:</p>
 <ul class="simple">
 <li><p>First U-Net??: Ronneberger et al., 2015: U-net: Convolutional networks for biomedical image segmentation</p></li>
@@ -1169,9 +1544,9 @@ extra textural features</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="evaluation">
-<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="evaluation">
+<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>MIoU</p>
 <ul>
@@ -1204,10 +1579,10 @@ extra textural features</p></li>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="datasets">
-<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">#</a></h2>
 <p>Todo:</p>
 <ul class="simple">
 <li><p>Bonetto et al.: Privacy in mini-drone based video surveillance</p></li>
@@ -1305,8 +1680,8 @@ Areas of improvement:</p>
 <li><p>Make semi-supervised system (show 10*10 patch =&gt; ask “water or ground” =&gt; change
 mask transparency)</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1330,32 +1705,48 @@ mask transparency)</p></li>
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../1/iteration_6_stability.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Iteration 6: Stability</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../../planner/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lakehopper Planner</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Pieter Fiers<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Pieter Fiers<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
