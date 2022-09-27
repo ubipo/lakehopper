@@ -8,6 +8,7 @@ scratch/
 .ipynb_checkpoints
 /vision/datasets/*
 !/vision/datasets/README.md
+!/vision/datasets/*.jpg
 planner/target/
 planner/data/
 .vscode
