@@ -363,12 +363,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iv-ortho-mid">
+   IV Ortho Mid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dronedeploy-dataset">
+   Dronedeploy Dataset
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -380,6 +409,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iv-ortho-mid">
+   IV Ortho Mid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dronedeploy-dataset">
+   Dronedeploy Dataset
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -390,6 +437,23 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="datasets">
 <h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">#</a></h1>
 <p><strong>High-Level Planning Vision Component Datasets</strong></p>
+<p>The dataset used for training is too large for GitHub, please contact me at
+<a class="reference external" href="mailto:pieter&#37;&#52;&#48;pfiers&#46;net">pieter<span>&#64;</span>pfiers<span>&#46;</span>net</a>.</p>
+<section id="iv-ortho-mid">
+<h2>IV Ortho Mid<a class="headerlink" href="#iv-ortho-mid" title="Permalink to this headline">#</a></h2>
+<p>Arbitrary selection from Informatie Vlaanderen’s
+‘Orthofotomozaiek_middenschalig_winteropnamen_kleur_meest_recent’.</p>
+<p><a class="reference external" href="https://download.vlaanderen.be/Producten/Detail?id=1545&amp;title=Orthofotomozaiek_middenschalig_winteropnamen_kleur_meest_recent_Vlaanderen_2021_04">https://download.vlaanderen.be/Producten/Detail?id=1545&amp;title=Orthofotomozaiek_middenschalig_winteropnamen_kleur_meest_recent_Vlaanderen_2021_04</a></p>
+<p><img alt="Sample image and mask of the IV Ortho Mid dataset" src="vision/datasets/iv-ortho-mid-sample.jpg" /></p>
+</section>
+<section id="dronedeploy-dataset">
+<h2>Dronedeploy Dataset<a class="headerlink" href="#dronedeploy-dataset" title="Permalink to this headline">#</a></h2>
+<p>DroneDeploy Segmentation Dataset with manual corrections for bad data
+(transparent, no label, etc.).</p>
+<p><a class="reference external" href="https://github.com/dronedeploy/dd-ml-segmentation-benchmark">https://github.com/dronedeploy/dd-ml-segmentation-benchmark</a></p>
+<p><img alt="Sample image and mask of the DroneDeploy dataset" src="vision/datasets/dronedeploy-sample-1.jpg" />
+<img alt="Sample image and mask of the DroneDeploy dataset" src="vision/datasets/dronedeploy-sample-2.jpg" /></p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
