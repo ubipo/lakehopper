@@ -1,9 +1,10 @@
-# Lakehopper
+# Lakehopper 🐝🏞️
 
-Lakehopper is my ongoing long-term project to create a solar-powered 
-autonomous MAV that rests on lakes during nights and overcast days.
+**Website:** [lakehopper.pfiers.net](https://lakehopper.pfiers.net)
 
-I essentially want to make a migrating bird that survives off of photosynthesis.
+Lakehopper is my long-term project to create a solar-powered autonomous drone
+that rests on lakes during nights and overcast days. Think of it as a migrating
+bird that survives off of photosynthesis.
 
 {include-in-output}`/dissertation.pdf` As my [Master’s
 thesis](/dissertation.pdf), I developed Lakehopper’s high-level planning
