@@ -39,6 +39,13 @@ export ENCODERS="MobileNetV2 InceptionResNetV2"
 
 See: [src/lakehopper_semseg/inference.ipynb](src/lakehopper_semseg/inference.ipynb)
 
+## Trained models
+
+Only the weights for the FPN + EfficientNetB3 model are included in the
+repository because the total size of all weights is too large for GitHub or
+GitHub LFS (3.1 GiB). For the weights of the other models, please contact me at
+[pieter@pfiers.net](mailto:pieter@pfiers.net).
+
 ## TPU
 
 Creating:
