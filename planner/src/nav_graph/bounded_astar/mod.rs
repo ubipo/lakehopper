@@ -22,7 +22,7 @@ pub enum IsGoalResult {
     MaximumExtend,
     /// Indicates the goal node has been reached. Stop the search.
     Goal,
-    /// Not a goal and within the maximum allowed range; continue
+    /// Not a goal and within the maximum allowed range; continue.
     NotGoal,
 }
 

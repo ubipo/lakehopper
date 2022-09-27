@@ -1,7 +1,7 @@
 # Book settings
 title                       : Lakehopper
 author                      : Pieter Fiers
-exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", env-lakehopper]
+exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "**node_modules", "**env-*", scratch, "**.vscode"]
 only_build_toc_files        : false
 
 #######################################################################################
@@ -18,18 +18,19 @@ execute:
 
 #######################################################################################
 # Parse and render settings
-# parse:
-#   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
-#     # - amsmath
-#     - colon_fence
-#     # - deflist
-#     - dollarmath
-#     # - html_admonition
-#     # - html_image
-#     - linkify
-#     # - replacements
-#     # - smartquotes
-#     - substitution
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    # - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - strikethrough
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
 
 #   myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
 
@@ -44,7 +45,7 @@ html:
 #   extra_footer              : ""  # Will be displayed underneath the footer.
 #   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  baseurl                   : "https://paddy.pfiers.net/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  baseurl                   : "https://lakehopper.pfiers.net/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
 #   comments:
 #     hypothesis              : false
 #     utterances              : false
@@ -64,11 +65,17 @@ html:
 #   colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
 repository:
-  url                       : https://github.com/ubipo/paddy
-  branch                    : master
+  url                       : https://github.com/ubipo/lakehopper
+  branch                    : main
 
-# sphinx:
-#   config:
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.video
+    - include_in_output
+  config:
+    # html_static_path:
+    #   - design/1/maiden.mp4
+    #   - design/1/v1-maiden-6-9-21.bin
 #     html_extra_path: ['media']
 #     nb_custom_formats:
 #       .py:

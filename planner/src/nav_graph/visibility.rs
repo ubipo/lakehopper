@@ -21,8 +21,8 @@ use take_until::TakeUntilExt;
 use crate::{
     coord_ext::{cmp_angle, cmp_distance},
     intersection::get_proper_ray_line_intersection,
-    mpi::{Mpi, NeighborsGetter},
-    multi_polygon_intersection::intersects_polygon_locally, dgc::DebugGeometryCallback,
+    mpi::{Mpi, NeighborsGetter, intersects_polygon_locally},
+    dgc::DebugGeometryCallback,
 };
 
 use super::graph_types::{NodeData, Features};

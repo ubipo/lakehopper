@@ -1,8 +1,7 @@
-use std::ops::Index;
-
-use geo::{Coordinate, MultiPolygon};
+use geo::MultiPolygon;
 
 use super::Mpi;
+
 
 pub struct MpiIter<'a> {
     parent: &'a MultiPolygon<f64>,
@@ -54,20 +53,5 @@ impl MpiCoordsIterable for MultiPolygon<f64> {
             parent: self,
             current: Mpi::default(),
         }
-    }
-}
-
-impl<'a> Index<&Mpi> for &'a MultiPolygon<f64> {
-    type Output = Coordinate<f64>;
-
-    fn index(&self, index: &Mpi) -> &Self::Output {
-        let polygon = &self.0[index.polygon_index];
-        let ring = if index.ring_index == 0 {
-            &polygon.exterior()
-        } else {
-            &polygon.interiors()[index.ring_index - 1]
-        };
-        let res = &ring.0[index.coord_index];
-        res
     }
 }

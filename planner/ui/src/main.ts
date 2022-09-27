@@ -1,6 +1,6 @@
 import { Map, TileLayer, DivIcon, GeoJSON as GeoJsonLayer, Marker, PointExpression, PathOptions, LatLng, Control, control as lControls, Layer, Icon } from "leaflet";
 import 'leaflet/dist/leaflet.css'
-import { GeoJsonObject, Feature, GeometryCollection, Geometry, FeatureCollection, MultiPolygon, MultiPoint } from 'geojson';
+import { GeoJsonObject, Feature, GeometryCollection, Geometry, FeatureCollection, MultiPolygon, MultiPoint, LineString, Position, Point } from 'geojson';
 import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import 'animate.css';
@@ -449,6 +449,8 @@ async function init() {
   transport.emit('map-ready');
   let navGraphLayer: GeoJsonLayer | null = null;
   let shortestPathLayer: GeoJsonLayer | null = null;
+  let plannerPathLayer: GeoJsonLayer | null = null;
+  let plannerPointsLayer: GeoJsonLayer | null = null;
   transport.listen('obstacles', (obstacles: Feature<MultiPolygon>) => {
     createGeoJsonLayer(map, obstacles, '#ff502f').addTo(map);
   });
@@ -510,26 +512,76 @@ async function init() {
   });
   transport.listen('planner-path-calculated', (legs: Feature[][]) => {
     console.info('planner-path-calculated', legs);
-    const existingDebugLayers: Layer[] = [];
-    map.eachLayer(layer => {
-      if ((layer as any).isDebug) {
-        existingDebugLayers.push(layer);
-      }
-    });
     Toast.fire({
       title: `${legs.length} legs`,
       icon: 'info',
     });
-    legs.forEach((leg, legIndex) => {
-      const color = colors[(existingDebugLayers.length + legIndex) % colors.length];
-      const [lastReachablePoint, path] = leg;
-      const lastReachablePointLayer = createGeoJsonLayer(map, lastReachablePoint, color);
-      (lastReachablePointLayer as any).isDebug = true;
-      lastReachablePointLayer.addTo(map);
-      const pathLayer = createGeoJsonLayer(map, path, color);
-      (pathLayer as any).isDebug = true;
-      pathLayer.addTo(map);
+
+    // const existingDebugLayers: Layer[] = [];
+    // map.eachLayer(layer => {
+    //   if ((layer as any).isDebug) {
+    //     existingDebugLayers.push(layer);
+    //   }
+    // });
+    // legs.forEach((leg, legIndex) => {
+      // const color = colors[(existingDebugLayers.length + legIndex) % colors.length];
+      // const [lastReachablePoint, path] = leg;
+      // const lastReachablePointLayer = createGeoJsonLayer(map, lastReachablePoint, color);
+      // (lastReachablePointLayer as any).isDebug = true;
+      // lastReachablePointLayer.addTo(map);
+      // const pathLayer = createGeoJsonLayer(map, path, color);
+      // (pathLayer as any).isDebug = true;
+      // pathLayer.addTo(map);
+    // });
+
+    if (plannerPathLayer !== null) {
+      map.removeLayer(plannerPathLayer);
+      layersControl.removeLayer(plannerPathLayer);
+    }
+
+    const plannerPathCoordinates = ([] as Position[]).concat(...legs.map((leg) => {
+      const [_lastReachablePoint, path] = leg;
+      return (path.geometry as LineString).coordinates;
+    }));
+    const plannerPathGeoJson: Feature<LineString, {}> = {
+      type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates: plannerPathCoordinates,
+      },
+      properties: {},
+    }
+
+    plannerPathLayer = createGeoJsonLayer(map, plannerPathGeoJson, '#b900e3').addTo(map);
+    plannerPathLayer.addTo(map);
+    layersControl.addOverlay(plannerPathLayer, 'Planner path');
+
+    if (plannerPointsLayer !== null) {
+      map.removeLayer(plannerPointsLayer);
+      layersControl.removeLayer(plannerPointsLayer);
+    }
+
+    const plannerPointCoordinates = legs.slice(0, -1).map((leg) => {
+      const [_lastReachablePoint, path] = leg;
+      return (path.geometry as LineString).coordinates.slice(-1)[0];
     });
+    console.log(plannerPointCoordinates)
+    const plannerPointsGeoJson: FeatureCollection = {
+      type: 'FeatureCollection',
+      features: plannerPointCoordinates.map((coordinate) => ({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: coordinate,
+        },
+        properties: {},
+      }))
+    }
+    console.log(plannerPointsGeoJson)
+
+    plannerPointsLayer = createGeoJsonLayer(map, plannerPointsGeoJson, '#ffb005').addTo(map);
+    plannerPointsLayer.addTo(map);
+    layersControl.addOverlay(plannerPointsLayer, 'Planner path');
   });
   transport.listen('error', (error: string) => {
     const msg = `Server error: ${error}`;

@@ -10,6 +10,8 @@ use geo::{prelude::EuclideanDistance, Coordinate};
 use ordered_float::OrderedFloat;
 
 pub trait AngleTo {
+    /// Returns the angle to `other` in radians in the range [0 .. TAU] with
+    /// respect to the positive x axis.
     fn angle_to(&self, other: &Self) -> f64;
 }
 
@@ -99,14 +101,14 @@ mod tests {
     };
 
     #[test]
-    fn angle_to___first_quadrant() {
+    fn angle_to__first_quadrant() {
         let a = Coordinate { x: 0.0, y: 0.0 };
         let b = Coordinate { x: 5.0, y: 5.0 };
         assert_relative_eq!(a.angle_to(&b), FRAC_PI_4, epsilon = 0.05);
     }
 
     #[test]
-    fn angle_to___third_quadrant() {
+    fn angle_to__third_quadrant() {
         let a = Coordinate { x: 0.0, y: 0.0 };
         let b = Coordinate { x: -5.0, y: -5.0 };
         assert_relative_eq!(a.angle_to(&b), PI + FRAC_PI_4, epsilon = 0.05);

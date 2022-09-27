@@ -18,7 +18,6 @@ mod grb;
 mod intersection;
 mod modulo;
 mod mpi;
-mod multi_polygon_intersection;
 mod server;
 mod nav_graph;
 mod winding;

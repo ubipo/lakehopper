@@ -1,10 +1,23 @@
-- file: README
-
+format: jb-article
+root: README
+sections:
 - file: design/README
   sections:
-  - file: design/iteration_1_ar
-  - file: design/iteration_2_weight_and_airfoil
-  - file: design/iteration_3_propulsion
-  - file: design/iteration_4_propulsion_weight
-  - file: design/iteration_5_fpv_weight
-  - file: design/iteration_6_stability
+  - file: design/1/README
+    sections:
+    - file: design/1/iteration_1_ar
+    - file: design/1/iteration_2_weight_and_airfoil
+    - file: design/1/iteration_3_propulsion
+    - file: design/1/iteration_4_propulsion_weight
+    - file: design/1/iteration_5_fpv_weight
+    - file: design/1/iteration_6_stability
+  - file: design/2/README
+- file: planner/README.md
+- file: vision/README.md
+  sections:
+  - file: vision/datasets/README.md
+    sections:
+    - file: vision/datasets/dronedeploy/README.md
+    - file: vision/datasets/iv-ortho-mid/README.md
+  - file: vision/src/lakehopper_semseg/train.ipynb
+  - file: vision/src/lakehopper_semseg/inference.ipynb

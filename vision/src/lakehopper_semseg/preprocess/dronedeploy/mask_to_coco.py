@@ -1,4 +1,6 @@
-"""Conversions from a color-based semantic segmentation mask image to the coco
+"""Not used or maintained anymore
+
+Conversions from a color-based semantic segmentation mask image to the coco
 JSON format.
 
 Adapted from https://github.com/chrise96/image-to-coco-json-converter

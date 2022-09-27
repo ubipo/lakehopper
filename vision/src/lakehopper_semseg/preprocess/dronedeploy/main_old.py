@@ -1,4 +1,6 @@
-"""Preprocessing script for the dronedeploy dataset.
+"""Not used or maintained anymore (see ../chipify.py instead)
+
+Preprocessing script for the dronedeploy dataset.
 
 Adapted from:
 - https://github.com/dronedeploy/dd-ml-segmentation-benchmark

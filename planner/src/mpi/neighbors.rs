@@ -5,6 +5,8 @@ use crate::modulo::ModuloSignedExt;
 
 use super::Mpi;
 
+/// Left and right neighbors of a multi-polygon index, as if looking out from
+/// within. Left neighbor has ring index +1, right neighbor has ring index -1.
 #[derive(Debug, Constructor)]
 pub struct Neighbors {
     pub left: Mpi,
@@ -18,7 +20,7 @@ impl Into<[Mpi; 2]> for Neighbors {
 }
 
 pub trait NeighborsGetter {
-    /// Return the neighbors of this index
+    /// Return the neighbors of this multi-polygon index.
     fn neighbors(&self, multi_poly: &MultiPolygon<f64>) -> Neighbors
     where
         Self: Sized;

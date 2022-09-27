@@ -1,6 +1,13 @@
-# Lakehopper 2
+# Lakehopper 2 Design
 
 Tilt-rotor active vertical takeoff flying wing
+
+This document is very much still a scratchpad.
+
+In the meantime, here's what Lakehopper 2 will *probably* look like:
+
+![Lakehopper 2 design preview](./preview.png)
+
 
 ## Goals
 

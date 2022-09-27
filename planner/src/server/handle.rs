@@ -1,15 +1,10 @@
 use std::error::Error;
 
 use derive_more::Display;
-use futures::{SinkExt, StreamExt, stream::SplitSink, Future};
-use geo::{prelude::EuclideanDistance, Geometry, LineString, MultiPolygon, Point};
-use petgraph::algo::astar;
-use polylabel::polylabel;
-use tokio::{
-    net::TcpStream,
-    sync::mpsc::{self, channel, Sender},
-};
-use tokio_tungstenite::{accept_async, tungstenite::Message as WsMessage, WebSocketStream};
+use futures::{SinkExt, StreamExt};
+use geo::{LineString, MultiPolygon, Point};
+use tokio::{sync::mpsc::{self, Sender}, net::TcpStream};
+use tokio_tungstenite::{accept_async, tungstenite::Message as WsMessage};
 
 use crate::{
     crs::create_to_int_proj,
@@ -18,7 +13,7 @@ use crate::{
     server::server_msg::ServerMessage,
     nav_graph::{
         add_coord_to_nav_graph, create_nav_graph, nav_graph_to_feature_collection,
-        graph_types::{NavGraph, Features}, Edge, plan_path_or_recharge,
+        graph_types::{NavGraph, Features}, plan_path_or_recharge, calculate_shortest_path_between_coords,
     }, dgc::create_dgc,
 };
 
@@ -26,6 +21,7 @@ use super::{
     client_msg::{ClientMessage, PlanClientMsg},
     server_msg::{ShortestPath, NavGraphLoaded},
 };
+
 
 #[derive(Debug, Default)]
 struct UiContext {
@@ -59,8 +55,8 @@ async fn handle_client_msg(
                     // let name = "small";
                     // let path = "data/iv-grb/medium.gpkg";
                     // let name = "medium";
-                    let path = "data/iv-grb/sv-edegem.gpkg";
-                    let name = "sv-edegem";
+                    // let path = "data/iv-grb/sv-edegem.gpkg";
+                    // let name = "sv-edegem";
                     // let path = "data/iv-grb/processed.gpkg";
                     // let name = "processed";
                     // let path = "data/iv-grb/grb-sv-phd.gpkg";
@@ -69,6 +65,8 @@ async fn handle_client_msg(
                     // let name = "grb-sv-phd-cross-edge-test";
                     // let path = "data/iv-grb/perf-34.gpkg";
                     // let name = "perf-34";
+                    let path = "data/iv-grb/sv-zaventem.gpkg";
+                    let name = "sv-zaventem";
                     let obstacles = load_gpkg_multi_polygon(path, name).await?;
                     ui_context.maybe_obstacles = Some(obstacles.clone());
                     obstacles
@@ -87,8 +85,8 @@ async fn handle_client_msg(
                     // let name = "water-small";
                     // let path = "data/osm-water/water.gpkg";
                     // let name = "water";
-                    let path = "data/osm-water/water-sv-edegem-II.gpkg";
-                    let name = "water-sv-edegem-II";
+                    // let path = "data/osm-water/water-sv-edegem-II.gpkg";
+                    // let name = "water-sv-edegem-II";
                     // let path = "data/osm-water/water-sv-phd.gpkg";
                     // let name = "water-sv-phd";
                     // let path = "data/osm-water/water-sv-phd-diff.gpkg";
@@ -97,6 +95,8 @@ async fn handle_client_msg(
                     // let name = "water-sv-phd-diff-cross-edge-test";
                     // let path = "data/osm-water/pe.gpkg";
                     // let name = "pe";
+                    let path = "data/osm-water/sv-zaventem.gpkg";
+                    let name = "sv-zaventem";
                     let waters = load_gpkg_multi_polygon(path, name).await?;
                     ui_context.maybe_waters = Some(waters.clone());
                     waters
@@ -162,27 +162,11 @@ async fn handle_client_msg(
                 "Nav graph not loaded yet. Please load the nav graph first.",
             )?;
 
-            // Projection needs to be in a separate scope because `proj::Proj`
-            // is `!Send`.
-            let (start_coord, end_coord) = {
-                let proj = create_to_int_proj();
-                (
-                    proj.project(start_lat_lng.into(), false)?,
-                    proj.project(end_lat_lng.into(), false)?,
-                )
-            };
-            let (_, start_index) = add_coord_to_nav_graph(start_coord, nav_graph, None, visibility_optimization_mode);
-            let (_, end_index) = add_coord_to_nav_graph(end_coord, nav_graph, None, visibility_optimization_mode);
-            let maybe_astar_result = astar(
-                &nav_graph.graph.clone(),
-                start_index,
-                |n| n == end_index,
-                |e| *e.weight(),
-                |node_index| {
-                    let node_data = nav_graph.graph.node_weight(node_index).unwrap();
-                    let coord = nav_graph.features.coord(node_data);
-                    Edge::new(coord.euclidean_distance(&end_coord))
-                },
+            let maybe_astar_result = calculate_shortest_path_between_coords(
+                nav_graph,
+                start_lat_lng.into(),
+                end_lat_lng.into(),
+                visibility_optimization_mode
             );
             let shortest_path: Option<ShortestPath> = if let Some(astar_result) = maybe_astar_result
             {
